@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  libreddit:
+    image: {{ libreddit.lookup.containers.libreddit.image }}
+    restart: unless-stopped
+    container_name: "libreddit"
+    ports:
+      - {{ libreddit.config.port }}:8080
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "--tries=1", "http://localhost:{{ libreddit.config.port }}/settings"]
+      interval: 5m
+      timeout: 3s

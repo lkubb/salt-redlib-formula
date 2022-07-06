@@ -1,0 +1,71 @@
+# yamllint disable rule:indentation rule:line-length
+# Fedora-32
+---
+values:
+  added_in_defaults: defaults_value
+  added_in_lookup: lookup_value
+  added_in_pillar: pillar_value
+  lookup:
+    arch: amd64
+    rootgroup: root
+    compose:
+      create_pod: null
+      pod_args: null
+      project_name: libreddit
+      remove_orphans: true
+      service:
+        container_prefix: null
+        ephemeral: true
+        pod_prefix: null
+        restart_policy: on-failure
+        separator: null
+        stop_timeout: null
+    paths:
+      base: /opt/containers/libreddit
+      compose: docker-compose.yml
+      config_libreddit: libreddit.env
+    user:
+      groups: []
+      home: null
+      name: libreddit
+      shell: /usr/sbin/nologin
+      uid: null
+    containers:
+      libreddit:
+        image: docker.io/spikecodes/libreddit:latest
+  install:
+    rootless: true
+    remove_all_data_for_sure: false
+  config:
+    autoplay_videos: false
+    comment_sort: confidence
+    front_page: default
+    hide_hls_notification: false
+    layout: card
+    port: 3417
+    post_sort: hot
+    show_nsfw: false
+    theme: system
+    use_hls: false
+    wide: false
+  map_jinja:
+    sources:
+    - Y:G@osarch
+    - Y:G@os_family
+    - Y:G@os
+    - Y:G@osfinger
+    - C@libreddit
+    - Y:G@id
+  master: template-master
+  tofs:
+    files_switch:
+    - any/path/can/be/used/here
+    - id
+    - roles
+    - osfinger
+    - os
+    - os_family
+    source_files:
+      Libreddit environment file is managed:
+      - libreddit.env.j2
+  winner: pillar
