@@ -11,15 +11,27 @@ libreddit:
     remove_all_data_for_sure: false
   config:
     autoplay_videos: false
+      # Default comment sort
+      # "confidence", "top", "new", "controversial", "old"
     comment_sort: confidence
+      # "default", "popular", "all"
     front_page: default
+      # Hide notification about possible HLS usage
     hide_hls_notification: false
+      # "card", "clean", "compact"
     layout: card
     port: 3417
+      # Default subreddit post sort
+      # "hot", "new", "top", "rising", "controversial"
     post_sort: hot
+      # Show NSFW posts
     show_nsfw: false
     theme: system
+      # Reddit videos require JavaScript (via HLS.js) to be enabled to be played
+      # with audio. Therefore, this toggle lets you either use Libreddit JS-free
+      # or utilize this feature.
     use_hls: false
+      # Wide UI
     wide: false
 
   lookup:
