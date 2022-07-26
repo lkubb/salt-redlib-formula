@@ -17,6 +17,7 @@ libreddit:
         ephemeral: true
         pod_prefix: null
         restart_policy: on-failure
+        restart_sec: 2
         separator: null
         stop_timeout: null
     paths:
@@ -29,6 +30,7 @@ libreddit:
       name: libreddit
       shell: /usr/sbin/nologin
       uid: null
+      gid: null
     containers:
       libreddit:
         image: docker.io/spikecodes/libreddit:latest

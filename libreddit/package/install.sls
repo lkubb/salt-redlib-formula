@@ -22,6 +22,8 @@ Libreddit user session is initialized at boot:
   compose.lingering_managed:
     - name: {{ libreddit.lookup.user.name }}
     - enable: {{ libreddit.install.rootless }}
+    - require:
+      - user: {{ libreddit.lookup.user.name }}
 
 Libreddit paths are present:
   file.directory:

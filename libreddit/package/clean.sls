@@ -33,6 +33,9 @@ Libreddit user session is not initialized at boot:
   compose.lingering_managed:
     - name: {{ libreddit.lookup.user.name }}
     - enable: false
+    - onlyif:
+      - fun: user.info
+        name: {{ libreddit.lookup.user.name }}
 
 Libreddit user account is absent:
   user.absent:
@@ -40,6 +43,9 @@ Libreddit user account is absent:
     - purge: {{ libreddit.install.remove_all_data_for_sure }}
     - require:
       - Libreddit is absent
+    - retry:
+        attempts: 5
+        interval: 2
 
 {%- if libreddit.install.remove_all_data_for_sure %}
 
