@@ -8,6 +8,18 @@
 include:
   - {{ sls_config_clean }}
 
+{%- if libreddit.install.autoupdate_service %}
+
+Podman autoupdate service is disabled for Libreddit:
+{%-   if libreddit.install.rootless %}
+  compose.systemd_service_disabled:
+    - user: {{ libreddit.lookup.user.name }}
+{%-   else %}
+  service.disabled:
+{%-   endif %}
+    - name: podman-auto-update.timer
+{%- endif %}
+
 Libreddit is absent:
   compose.removed:
     - name: {{ libreddit.lookup.paths.compose }}

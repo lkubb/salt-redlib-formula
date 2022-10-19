@@ -71,3 +71,15 @@ Libreddit is installed:
     - require:
       - user: {{ libreddit.lookup.user.name }}
 {%- endif %}
+
+{%- if libreddit.install.autoupdate_service is not none %}
+
+Podman autoupdate service is managed for Libreddit:
+{%-   if libreddit.install.rootless %}
+  compose.systemd_service_{{ "enabled" if libreddit.install.autoupdate_service else "disabled" }}:
+    - user: {{ libreddit.lookup.user.name }}
+{%-   else %}
+  service.{{ "enabled" if libreddit.install.autoupdate_service else "disabled" }}:
+{%-   endif %}
+    - name: podman-auto-update.timer
+{%- endif %}
