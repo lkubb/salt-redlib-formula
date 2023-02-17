@@ -1,8 +1,14 @@
-# -*- coding: utf-8 -*-
 # vim: ft=sls
 
-{%- set tplroot = tpldir.split('/')[0] %}
-{%- set sls_config_clean = tplroot ~ '.config.clean' %}
+{#-
+    Removes the libreddit containers
+    and the corresponding user account and service units.
+    Has a depency on `libreddit.config.clean`_.
+    If ``remove_all_data_for_sure`` was set, also removes all data.
+#}
+
+{%- set tplroot = tpldir.split("/")[0] %}
+{%- set sls_config_clean = tplroot ~ ".config.clean" %}
 {%- from tplroot ~ "/map.jinja" import mapdata as libreddit with context %}
 
 include:
@@ -40,6 +46,25 @@ Libreddit compose file is absent:
     - name: {{ libreddit.lookup.paths.compose }}
     - require:
       - Libreddit is absent
+
+{%- if libreddit.install.podman_api %}
+
+Libreddit podman API is unavailable:
+  compose.systemd_service_dead:
+    - name: podman
+    - user: {{ libreddit.lookup.user.name }}
+    - onlyif:
+      - fun: user.info
+        name: {{ libreddit.lookup.user.name }}
+
+Libreddit podman API is disabled:
+  compose.systemd_service_disabled:
+    - name: podman
+    - user: {{ libreddit.lookup.user.name }}
+    - onlyif:
+      - fun: user.info
+        name: {{ libreddit.lookup.user.name }}
+{%- endif %}
 
 Libreddit user session is not initialized at boot:
   compose.lingering_managed:

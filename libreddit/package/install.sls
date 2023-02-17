@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # vim: ft=sls
 
-{%- set tplroot = tpldir.split('/')[0] %}
+{%- set tplroot = tpldir.split("/")[0] %}
 {%- from tplroot ~ "/map.jinja" import mapdata as libreddit with context %}
 {%- from tplroot ~ "/libtofs.jinja" import files_switch with context %}
 
@@ -35,11 +34,28 @@ Libreddit paths are present:
     - require:
       - user: {{ libreddit.lookup.user.name }}
 
+{%- if libreddit.install.podman_api %}
+
+Libreddit podman API is enabled:
+  compose.systemd_service_enabled:
+    - name: podman
+    - user: {{ libreddit.lookup.user.name }}
+    - require:
+      - Libreddit user session is initialized at boot
+
+Libreddit podman API is available:
+  compose.systemd_service_running:
+    - name: podman
+    - user: {{ libreddit.lookup.user.name }}
+    - require:
+      - Libreddit user session is initialized at boot
+{%- endif %}
+
 Libreddit compose file is managed:
   file.managed:
     - name: {{ libreddit.lookup.paths.compose }}
-    - source: {{ files_switch(['docker-compose.yml', 'docker-compose.yml.j2'],
-                              lookup='Libreddit compose file is present'
+    - source: {{ files_switch(["docker-compose.yml", "docker-compose.yml.j2"],
+                              lookup="Libreddit compose file is present"
                  )
               }}
     - mode: '0644'
