@@ -51,7 +51,7 @@ Libreddit compose file is absent:
 
 Libreddit podman API is unavailable:
   compose.systemd_service_dead:
-    - name: podman
+    - name: podman.socket
     - user: {{ libreddit.lookup.user.name }}
     - onlyif:
       - fun: user.info
@@ -59,7 +59,7 @@ Libreddit podman API is unavailable:
 
 Libreddit podman API is disabled:
   compose.systemd_service_disabled:
-    - name: podman
+    - name: podman.socket
     - user: {{ libreddit.lookup.user.name }}
     - onlyif:
       - fun: user.info
