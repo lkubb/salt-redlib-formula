@@ -53,6 +53,11 @@ values:
     theme: system
     use_hls: false
     wide: false
+  tofs:
+    files_switch:
+      - id
+      - roles
+      - os_family
   # Just here for testing
   added_in_defaults: defaults_value
   winner: defaults
