@@ -26,7 +26,7 @@ Libreddit environment files are managed:
     - template: jinja
     - require:
       - user: {{ libreddit.lookup.user.name }}
-    - watch_in:
+    - require_in:
       - Libreddit is installed
     - context:
         libreddit: {{ libreddit | json }}

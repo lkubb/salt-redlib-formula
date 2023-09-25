@@ -34,3 +34,4 @@ Libreddit service is running:
 {%- endif %}
     - watch:
       - Libreddit is installed
+      - sls: {{ sls_config_file }}
