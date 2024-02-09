@@ -2,7 +2,7 @@
 
 require 'yaml'
 
-control 'libreddit._mapdata' do
+control 'redlib._mapdata' do
   title '`map.jinja` should match the reference file'
 
   ### Method

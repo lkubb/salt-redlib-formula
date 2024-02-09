@@ -3,7 +3,7 @@
 {#-
     *Meta-state*.
 
-    This installs the libreddit containers,
+    This installs the redlib containers,
     manages their configuration and starts their services.
 #}
 

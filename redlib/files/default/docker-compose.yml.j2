@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  redlib:
+    image: {{ redlib.lookup.containers.redlib.image }}
+    restart: unless-stopped
+    container_name: "redlib"
+    ports:
+      - {{ redlib.config.port }}:8080
+    user: nobody
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+      - seccomp=seccomp-redlib.json
+    cap_drop:
+      - ALL
+    networks:
+      - redlib
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "--tries=1", "http://localhost:{{ redlib.config.port }}/settings"]
+      interval: 5m
+      timeout: 3s
+
+networks:
+  redlib:

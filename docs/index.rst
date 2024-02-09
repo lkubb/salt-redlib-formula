@@ -1,5 +1,5 @@
-Welcome to libreddit-formula's documentation!
-=============================================
+Welcome to redlib-formula's documentation!
+==========================================
 
 .. toctree::
    :maxdepth: 2

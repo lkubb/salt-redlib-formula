@@ -1,7 +1,7 @@
 # vim: ft=yaml
 # yamllint disable rule:comments-indentation
 ---
-libreddit:
+redlib:
   install:
       # Install rootless containers running as dedicated user.
     rootless: true
@@ -33,7 +33,7 @@ libreddit:
     show_nsfw: false
     theme: system
       # Reddit videos require JavaScript (via HLS.js) to be enabled to be played
-      # with audio. Therefore, this toggle lets you either use Libreddit JS-free
+      # with audio. Therefore, this toggle lets you either use Redlib JS-free
       # or utilize this feature.
     use_hls: false
       # Wide UI
@@ -44,7 +44,7 @@ libreddit:
     compose:
       create_pod: null
       pod_args: null
-      project_name: libreddit
+      project_name: redlib
       remove_orphans: true
       build: false
       build_args: null
@@ -58,19 +58,19 @@ libreddit:
         separator: null
         stop_timeout: null
     paths:
-      base: /opt/containers/libreddit
+      base: /opt/containers/redlib
       compose: docker-compose.yml
-      config_libreddit: libreddit.env
+      config_redlib: redlib.env
     user:
       groups: []
       home: null
-      name: libreddit
+      name: redlib
       shell: /usr/sbin/nologin
       uid: null
       gid: null
     containers:
-      libreddit:
-        image: docker.io/spikecodes/libreddit:latest
+      redlib:
+        image: quay.io/redlib/redlib:latest
 
   tofs:
       # The files_switch key serves as a selector for alternative
@@ -89,7 +89,7 @@ libreddit:
       # All aspects of path/file resolution are customisable using the options below.
       # This is unnecessary in most cases; there are sensible defaults.
       # Default path: salt://< path_prefix >/< dirs.files >/< dirs.default >
-      # I.e.: salt://libreddit/files/default
+      # I.e.: salt://redlib/files/default
       # path_prefix: template_alt
       # dirs:
       #   files: files_alt
@@ -97,9 +97,9 @@ libreddit:
       # The entries under `source_files` are prepended to the default source files
       # given for the state
     source_files:
-      Libreddit compose file is managed:
+      Redlib compose file is managed:
         - docker-compose_alt.yml
         - docker-compose_alt.yml.j2
-      libreddit environment file is managed:
-        - libreddit_alt.env
-        - libreddit_alt.env.j2
+      redlib environment file is managed:
+        - redlib_alt.env
+        - redlib_alt.env.j2

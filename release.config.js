@@ -1,6 +1,6 @@
 module.exports = {
   branch: 'master',
-  repositoryUrl: 'https://github.com/lkubb/salt-libreddit-formula',
+  repositoryUrl: 'https://github.com/lkubb/salt-redlib-formula',
   plugins: [
       ['@semantic-release/commit-analyzer', {
         preset: 'angular',

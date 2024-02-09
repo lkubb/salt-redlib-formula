@@ -1,11 +1,11 @@
 # vim: ft=yaml
 ---
 name: default
-title: Libreddit formula
+title: Redlib formula
 maintainer: lkubb
 license: Apache-2.0
 # yamllint disable-line rule:line-length
-summary: Verify that the Libreddit formula is setup and configured correctly
+summary: Verify that the Redlib formula is setup and configured correctly
 depends:
   - name: share
     path: test/integration/share

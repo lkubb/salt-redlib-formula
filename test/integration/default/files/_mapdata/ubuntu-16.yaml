@@ -11,7 +11,7 @@ values:
     compose:
       create_pod: null
       pod_args: null
-      project_name: libreddit
+      project_name: redlib
       remove_orphans: true
       build: false
       build_args: null
@@ -25,19 +25,19 @@ values:
         separator: null
         stop_timeout: null
     paths:
-      base: /opt/containers/libreddit
+      base: /opt/containers/redlib
       compose: docker-compose.yml
-      config_libreddit: libreddit.env
+      config_redlib: redlib.env
     user:
       groups: []
       home: null
-      name: libreddit
+      name: redlib
       shell: /usr/sbin/nologin
       uid: null
       gid: null
     containers:
-      libreddit:
-        image: docker.io/spikecodes/libreddit:latest
+      redlib:
+        image: quay.io/redlib/redlib:latest
   install:
     rootless: true
     autoupdate: true
@@ -62,7 +62,7 @@ values:
     - Y:G@os_family
     - Y:G@os
     - Y:G@osfinger
-    - C@libreddit
+    - C@redlib
     - Y:G@id
   master: template-master
   tofs:
@@ -74,6 +74,6 @@ values:
     - os
     - os_family
     source_files:
-      Libreddit environment file is managed:
-      - libreddit.env.j2
+      Redlib environment file is managed:
+      - redlib.env.j2
   winner: pillar

@@ -1,7 +1,7 @@
 # vim: ft=sls
 
 {#-
-    Installs the libreddit containers only.
+    Installs the redlib containers only.
     This includes creating systemd service units.
 #}
 

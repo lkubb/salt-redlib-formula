@@ -1,7 +1,7 @@
 .. _readme:
 
-Libreddit Formula
-=================
+Redlib Formula
+==============
 
 |img_sr| |img_pc|
 
@@ -14,7 +14,7 @@ Libreddit Formula
    :scale: 100%
    :target: https://github.com/pre-commit/pre-commit
 
-Manage Libreddit with Salt and Podman.
+Manage Redlib with Salt and Podman.
 
 .. contents:: **Table of Contents**
    :depth: 1
@@ -101,7 +101,7 @@ e.g. ``debian-9-2019-2-py3``.
 ``bin/kitchen converge``
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Creates the docker instance and runs the ``libreddit`` main state, ready for testing.
+Creates the docker instance and runs the ``redlib`` main state, ready for testing.
 
 ``bin/kitchen verify``
 ^^^^^^^^^^^^^^^^^^^^^^

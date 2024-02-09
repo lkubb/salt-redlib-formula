@@ -15,16 +15,16 @@
         "comment_start_string": "{@",
         "comment_end_string": "@}"
       },
-      "name": "Libreddit",
-      "abbr": "libreddit",
-      "abbr_pysafe": "libreddit",
-      "project_name": "libreddit",
-      "containers": "libreddit",
+      "name": "Redlib",
+      "abbr": "redlib",
+      "abbr_pysafe": "redlib",
+      "project_name": "redlib",
+      "containers": "redlib",
       "git_username": "lkubb",
       "lookup": {
         "containers": {
-          "libreddit": {
-            "image": "docker.io/spikecodes/libreddit:latest"
+          "redlib": {
+            "image": "quay.io/redlib/redlib:latest"
           }
         }
       },

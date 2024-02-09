@@ -1,6 +1,6 @@
 # vim: ft=yaml
 ---
-libreddit:
+redlib:
   lookup:
     master: template-master
     # Just for testing purposes
@@ -9,7 +9,7 @@ libreddit:
     compose:
       create_pod: null
       pod_args: null
-      project_name: libreddit
+      project_name: redlib
       remove_orphans: true
       build: false
       build_args: null
@@ -23,19 +23,19 @@ libreddit:
         separator: null
         stop_timeout: null
     paths:
-      base: /opt/containers/libreddit
+      base: /opt/containers/redlib
       compose: docker-compose.yml
-      config_libreddit: libreddit.env
+      config_redlib: redlib.env
     user:
       groups: []
       home: null
-      name: libreddit
+      name: redlib
       shell: /usr/sbin/nologin
       uid: null
       gid: null
     containers:
-      libreddit:
-        image: docker.io/spikecodes/libreddit:latest
+      redlib:
+        image: quay.io/redlib/redlib:latest
   install:
     rootless: true
     autoupdate: true
@@ -71,7 +71,7 @@ libreddit:
     # All aspects of path/file resolution are customisable using the options below.
     # This is unnecessary in most cases; there are sensible defaults.
     # Default path: salt://< path_prefix >/< dirs.files >/< dirs.default >
-    #         I.e.: salt://libreddit/files/default
+    #         I.e.: salt://redlib/files/default
     # path_prefix: template_alt
     # dirs:
     #   files: files_alt
@@ -79,14 +79,14 @@ libreddit:
     # The entries under `source_files` are prepended to the default source files
     # given for the state
     # source_files:
-    #   libreddit-config-file-file-managed:
+    #   redlib-config-file-file-managed:
     #     - 'example_alt.tmpl'
     #     - 'example_alt.tmpl.jinja'
 
     # For testing purposes
     source_files:
-      Libreddit environment file is managed:
-      - libreddit.env.j2
+      Redlib environment file is managed:
+      - redlib.env.j2
 
   # Just for testing purposes
   winner: pillar

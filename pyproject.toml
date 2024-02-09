@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "libreddit_formula"
+name = "redlib_formula"
 version = "1.0.0"
-description = "Saltstack states to manage Libreddit"
+description = "Saltstack states to manage Redlib"
 authors = ["lkubb"]
 
 [tool.poetry.dependencies]

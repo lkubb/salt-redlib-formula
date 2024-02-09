@@ -7,62 +7,62 @@ The following states are found in this formula:
    :local:
 
 
-``libreddit``
-^^^^^^^^^^^^^
+``redlib``
+^^^^^^^^^^
 *Meta-state*.
 
-This installs the libreddit containers,
+This installs the redlib containers,
 manages their configuration and starts their services.
 
 
-``libreddit.package``
-^^^^^^^^^^^^^^^^^^^^^
-Installs the libreddit containers only.
+``redlib.package``
+^^^^^^^^^^^^^^^^^^
+Installs the redlib containers only.
 This includes creating systemd service units.
 
 
-``libreddit.config``
-^^^^^^^^^^^^^^^^^^^^
-Manages the configuration of the libreddit containers.
-Has a dependency on `libreddit.package`_.
+``redlib.config``
+^^^^^^^^^^^^^^^^^
+Manages the configuration of the redlib containers.
+Has a dependency on `redlib.package`_.
 
 
-``libreddit.service``
-^^^^^^^^^^^^^^^^^^^^^
-Starts the libreddit container services
+``redlib.service``
+^^^^^^^^^^^^^^^^^^
+Starts the redlib container services
 and enables them at boot time.
-Has a dependency on `libreddit.config`_.
+Has a dependency on `redlib.config`_.
 
 
-``libreddit.clean``
-^^^^^^^^^^^^^^^^^^^
+``redlib.clean``
+^^^^^^^^^^^^^^^^
 *Meta-state*.
 
-Undoes everything performed in the ``libreddit`` meta-state
-in reverse order, i.e. stops the libreddit services,
+Undoes everything performed in the ``redlib`` meta-state
+in reverse order, i.e. stops the redlib services,
 removes their configuration and then removes their containers.
 
 
-``libreddit.package.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Removes the libreddit containers
+``redlib.package.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^
+Removes the redlib containers
 and the corresponding user account and service units.
-Has a depency on `libreddit.config.clean`_.
+Has a depency on `redlib.config.clean`_.
 If ``remove_all_data_for_sure`` was set, also removes all data.
 
 
-``libreddit.config.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-Removes the configuration of the libreddit containers
-and has a dependency on `libreddit.service.clean`_.
+``redlib.config.clean``
+^^^^^^^^^^^^^^^^^^^^^^^
+Removes the configuration of the redlib containers
+and has a dependency on `redlib.service.clean`_.
 
 This does not lead to the containers/services being rebuilt
 and thus differs from the usual behavior.
 
 
-``libreddit.service.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Stops the libreddit container services
+``redlib.service.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^
+Stops the redlib container services
 and disables them at boot time.
 
 
